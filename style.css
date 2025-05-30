@@ -1,0 +1,146 @@
+.ctrls {
+    background-color: rgb(28, 28, 28);
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+.elmnts {
+    min-height: 100vh;
+    background-color: rgb(241, 237, 233);
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 50px;
+
+}
+
+.cards-mere,
+.cards-fils {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.width24 {
+    width: 24% !important;
+}
+
+.btn-add {
+    background-color: rgb(241, 237, 233) !important;
+}
+
+#ajt1Inputs {
+    width: 50%;
+    margin: auto;
+}
+
+.ajt1DPar {
+    width: 100%;
+    height: 40px;
+}
+
+.bg-black {
+    background-color: rgb(28, 28, 28);
+}
+
+#blocks {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bloc {
+    background-color: cadetblue;
+    width: 24%;
+    margin-bottom: 15px;
+    margin-right: 1%;
+}
+
+.card:hover {
+    cursor: pointer;
+}
+
+.card {
+    margin-bottom: 10px;
+}
+
+.backBtn {
+    position: absolute;
+    border: none;
+    top: 10px;
+    left: 15px;
+    color: gray;
+    background: none;
+}
+
+
+.cards-dets-sec {
+    display: flex;
+    flex-direction: column;
+    /* stack children vertically */
+    align-items: center;
+    /* center horizontally */
+    justify-content: center;
+    /* center vertically */
+    height: 100vh;
+    /* fill full viewport height */
+    text-align: center;
+    /* optional: center text inside elements */
+    padding: 1rem;
+    /* optional: prevent elements from sticking to edges */
+}
+
+.deleteCompBtn {
+    z-index: 999;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+#timerDisk {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #4caf50;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    gap: 10px;
+}
+
+.compStatus {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgb(217, 217, 217);
+    padding: 1px 6px;
+    border-radius: 11px;
+}
+
+.addBtn {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.threeDotsMenu {
+    z-index: 99999;
+}
+
+.dropdown {
+    position: absolute !important;
+    top: 5px !important;
+    right: 5px !important;
+}
+

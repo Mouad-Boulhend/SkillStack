@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4Q6Gf2aSP4eDXB8Miphtr37CMZZQ5oXLH2yaXMJ2w8e2ZtHTl7GptT4jmndRuHDT" crossorigin="anonymous">
+</head>
+
+<body>
+    <section class="row " id="dash">
+        <div class="ctrls col-2">
+            <div class="filters mt-3">
+                <button class="btn btn-secondary" onclick="afficher('fini')">Fini</button>
+                <button class="btn btn-secondary" onclick="afficher('en cours')">En cours</button>
+                <button class="btn btn-secondary" onclick="afficher()">Tout</button>
+            </div>
+
+            <!-- <button onclick="add()" class="btn btn-add" style="font-size: 2rem; width: 70px; height: 70px;">+</button> -->
+        </div>
+        <div class="elmnts col-10" id="affichage-main">
+            <div id="cards-mere-sec">
+                <button onclick="add()" class="btn btn-success addBtn">+</button>
+                <div class="cards-mere" id="cards-mere"></div>
+            </div>
+            <div class="modifierComp" id="modifierComp">
+                <button onclick="backToCardsMere2()" class="backBtn">back</button>
+                <input type="text" name="newCompName" id="newCompName">
+                <input type="text" name="newCompDesc" id="newCompDesc">
+                <button onclick="modifierCompValues()">Modifier</button>
+            </div>
+            <div class="cards-fils-sec" id="cards-fils-sec">
+                <button onclick="backToCardsMere()" class="backBtn">back</button>
+                <button onclick="addNewEmptyBloc()" class="addBtn btn btn-success">+</button>
+                <div class="cards-fils" id="cards-fils"></div>
+            </div>
+            <div class="cards-dets-sec" id="cards-dets-sec">
+                <button onclick="backToCardsFils()" class="backBtn">back</button>
+                <div class="col-6 mx-auto my-3">
+                    <table class="table w-100">
+                        <tr>
+                            <td>
+                                <label for="NomDeBloc">Nom de bloc:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="NomDeBloc">
+                                <input type="text" id="indexDeBloc" hidden>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="descDeBloc">Description de bloc:</label>
+                            </td>
+                            <td>
+                                <input type="text" id="descDeBloc">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <label for="durDeBloc">Duration de bloc (h):</label>
+                            </td>
+                            <td>
+                                <input type="text" id="durDeBloc">
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" class="text-center"><button id="modifierBloc"
+                                    class="btn btn-primary bg-black">Modifier</button></td>
+                        </tr>
+                    </table>
+
+                    <div class="mx-auto">
+                        <div id="timerDisk" class="mx-auto">0h 0min 0s</div>
+
+                        <div class="controls d-flex justify-content-center">
+                            <button id="startTimer" class="btn btn-primary">Start</button>
+                            <button id="stopTimer" class="btn btn-danger">Stop</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="" id="ajouter1">
+        <button onclick="backToDashboard()" class="backBtn">back</button>
+        <h3 class="text-center mt-5">Que voulez vous apprendre ?</h3>
+
+        <div id="ajt1Inputs" class="text-center">
+            <input type="text" placeholder="Nom de ce parcours d'apprentissage" id="nomDeCompetence"
+                class="ajt1DPar my-2 px-2">
+            <br>
+            <input type="text" placeholder="Description de ce parcours d'apprentissage" id="descDeCompetence"
+                class="ajt1DPar my-2 px-2">
+            <br>
+            <select name="typeDeCompetence" id="typeDeCompetence" class="ajt1DPar my-2">
+                <option value="" disabled selected>Type De Competence</option>
+                <option value="competenceGenerale">Competence Generale</option>
+                <option value="lectureDLivre">lecture D'un Livre</option>
+            </select>
+            <br>
+            <button onclick="next1()" class="btn btn-primary mx-auto bg-black">Suiver</button>
+        </div>
+
+    </section>
+
+    <section class="text-center" id="ajouter2">
+        <button onclick="backToAjouter1()" class="backBtn">back</button>
+        <h3 class="text-center mt-5">Répartition du temps</h3>
+
+        <div class="my-2">
+            <label for="t-apprentissage">combien de temps faudra-t-il pour apprendre cette compétence</label>
+            <input type="number" placeholder="12h" id="t-apprentissage">
+        </div>
+
+        <div class="my-2">
+            <label for="t-bloc">combien de temps allez-vous consacrer chaque jour</label>
+            <input type="number" placeholder="12h" id="t-bloc">
+        </div>
+
+        <button onclick="next2()" class="btn btn-primary mx-auto bg-black">Suiver</button>
+    </section>
+
+    <section id="c-division">
+        <button onclick="backToAjouter2()" class="backBtn">back</button>
+        <h3 class="text-center mt-5">Blocks d'apprentissage de <span class="comp-name">JS</span> <button
+                onclick="fini()" class="btn btn-primary mx-auto bg-black">Fini</button></h3>
+        <div id="blocks" class="p-5">
+            <div class="bloc" id="bloc1">
+                <h4 class="text-center">Bloc 1 (h)</h4>
+                <input type="text" id="c-title1" placeholder="Titre" class="w-100">
+                <input type="text" id="c-desc1" placeholder="Description" class="w-100">
+                <!-- <div class="progress" role="progressbar" aria-label="Example with label" aria-valuenow="25"
+                    aria-valuemin="0" aria-valuemax="100">
+                    <div class="progress-bar" style="width: 25%">25%</div>
+                </div> -->
+            </div>
+        </div>
+
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
+    <script src="./script.js"></script>
+</body>
+
+</html>
