@@ -185,8 +185,8 @@ function afficher(filter = 'tout') {
                             <i class="bi bi-three-dots-vertical text-light fs-3"></i>
                         </button>
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <li><button class="dropdown-item" href="#" onclick="event.stopPropagation(); modiferCompInfo(${i})" >Edit</button></li>
-                            <li><button class="dropdown-item" onclick="supprimerComp(${i}); event.stopPropagation()">Delete</button></li>
+                            <li><button class="dropdown-item" href="#" onclick="event.stopPropagation(); modiferCompInfo(${i})" >Modifier</button></li>
+                            <li><button class="dropdown-item" onclick="supprimerComp(${i}); event.stopPropagation()">Supprimer</button></li>
                         </ul>
                     </div>
 
