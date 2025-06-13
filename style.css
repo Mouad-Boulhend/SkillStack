@@ -22,11 +22,14 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+    margin-top: 10px;
 }
 
 .width24 {
     width: 24% !important;
 }
+
+
 
 .btn-add {
     background-color: rgb(241, 237, 233) !important;
@@ -99,12 +102,25 @@
     top: 5px;
 }
 
+.compStatusEnCours {
+    background-color: rgb(196, 196, 196) !important;
+}
+
+.compStatusFini {
+    background-color: rgb(255, 255, 255) !important;
+}
+
+.btn-success {
+    background-color: #000000 !important;
+    border: none !important;
+}
+
 #timerDisk {
     width: 200px;
     height: 200px;
     border-radius: 50%;
-    background-color: #4caf50;
-    color: white;
+    background-color: #181818;
+    color: #ffffff;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -112,6 +128,27 @@
     font-weight: bold;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     margin-bottom: 20px;
+    transition: background-color 0.2s ease;
+    transition: color 0.2s ease;
+}
+
+.btn-start {
+    background-color: #ffffff !important;
+    color: black !important;
+    box-shadow: 0 4px #000000;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !important;
+}
+
+.btn-stop {
+    background-color: #e1e1e1 !important;
+    color: black !important;
+    box-shadow: 0 2px #000000;
+    transition: background-color 0.15s ease-in-out, border-color 0.15s ease-in-out !important;
+}
+
+.btn-deleteC {
+    background-color: #000000 !important;
+    color: white !important;
 }
 
 .controls {
@@ -143,4 +180,3 @@
     top: 5px !important;
     right: 5px !important;
 }
-

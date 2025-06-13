@@ -146,10 +146,10 @@ function afficher(filter = 'tout') {
 
     let filteredComps = comps
 
-    if(filter == 'en cours'){
+    if (filter == 'en cours') {
         filteredComps = comps.filter(comp => comp.status == 'en cours')
     }
-    else if(filter == 'fini'){
+    else if (filter == 'fini') {
         filteredComps = comps.filter(comp => comp.status == 'fini')
     }
 
@@ -171,8 +171,8 @@ function afficher(filter = 'tout') {
         }
 
         let cs
-        if (filteredComps[i].status == 'en cours') { cs = `<p class="compStatus">en cours</p>` }
-        else { cs = `<p class="compStatus bg-success">fini</p>` }
+        if (filteredComps[i].status == 'en cours') { cs = `<p class="compStatus compStatusEnCours">en cours</p>` }
+        else { cs = `<p class="compStatus compStatusFini">fini</p>` }
         text += `
             <div class="card col-3 width24" onclick="showFils(${i})">
                 ${img}
@@ -193,7 +193,7 @@ function afficher(filter = 'tout') {
                     ${cs}
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="${totalProgressPercentage}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" style="width: ${totalProgressPercentage}%">${totalProgressPercentage.toFixed(2)}%</div>
+                    <div class="progress-bar" style="width: ${totalProgressPercentage}%; background-color:black;">${totalProgressPercentage.toFixed(2)}%</div>
                 </div>
             </div>
         `
@@ -231,8 +231,11 @@ function supprimerComp(x) {
 
 function supprimerBloc(event, x, z) {
     event.stopPropagation()
-    comps[z].blocksDApprentissage.splice(x, 1)
-    showFils(z)
+    if (confirm("Vous etes sure ?")) {
+        comps[z].blocksDApprentissage.splice(x, 1)
+        showFils(z)
+    }
+
 }
 
 function showFils(x) {
@@ -255,9 +258,9 @@ function showFils(x) {
                     <p class="card-text">${cblocs[i].description}</p>
                 </div>
                 <div class="progress" role="progressbar" aria-valuenow="${timeDonePercent}" aria-valuemin="0" aria-valuemax="100">
-                    <div class="progress-bar" style="width: ${timeDonePercent}%">${timeDonePercent.toFixed(2)}%</div>
+                    <div class="progress-bar" style="width: ${timeDonePercent}%; background-color:black; ">${timeDonePercent.toFixed(2)}%</div>
                 </div>
-                <button class="btn btn-danger deleteCompBtn" onclick="supprimerBloc(event, ${i}, ${x})">X</button>
+                <button class="btn btn-deleteC deleteCompBtn" onclick="supprimerBloc(event, ${i}, ${x})">X</button>
             </div>
         `
     }
@@ -312,6 +315,14 @@ function startTimer() {
         return;
     }
 
+    document.querySelector("#timerDisk").style.backgroundColor = "#ffffff"
+    document.querySelector("#timerDisk").style.color = "#000000"
+    document.querySelector("#startTimer").style.boxShadow = "0 2px #000000"
+    document.querySelector("#stopTimer").style.boxShadow = "0 4px #000000"
+    document.querySelector("#startTimer").style.transform = "translateY(2px)"
+    document.querySelector("#stopTimer").style.transform = "translateY(-2px)"
+
+
     let remainingTime = inputHours * 3600000;
     timerStart = Date.now();
 
@@ -362,6 +373,13 @@ function startTimer() {
 document.getElementById("stopTimer").addEventListener('click', stopTimerFunc)
 function stopTimerFunc() {
     if (!timerInterval) { return }
+
+    document.querySelector("#timerDisk").style.backgroundColor = "#181818"
+    document.querySelector("#timerDisk").style.color = "#ffffff"
+    document.querySelector("#startTimer").style.boxShadow = "0 4px #000000"
+    document.querySelector("#stopTimer").style.boxShadow = "0 2px #000000"
+    document.querySelector("#startTimer").style.transform = "translateY(-2px)"
+    document.querySelector("#stopTimer").style.transform = "translateY(2px)"
 
     console.log(comps);
 

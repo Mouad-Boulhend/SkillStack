@@ -30,9 +30,32 @@
             </div>
             <div class="modifierComp" id="modifierComp">
                 <button onclick="backToCardsMere2()" class="backBtn">back</button>
-                <input type="text" name="newCompName" id="newCompName">
-                <input type="text" name="newCompDesc" id="newCompDesc">
-                <button onclick="modifierCompValues()">Modifier</button>
+
+                <table class="table w-100">
+                    <tr>
+                        <td>
+                            <label for="NomDeBloc">Nom de bloc:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="newCompName" id="newCompName">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <label for="descDeBloc">Description de bloc:</label>
+                        </td>
+                        <td>
+                            <input type="text" name="newCompDesc" id="newCompDesc">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td colspan="2" class="text-center">
+                            <button onclick="modifierCompValues()">Modifier</button>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <div class="cards-fils-sec" id="cards-fils-sec">
                 <button onclick="backToCardsMere()" class="backBtn">back</button>
@@ -81,8 +104,8 @@
                         <div id="timerDisk" class="mx-auto">0h 0min 0s</div>
 
                         <div class="controls d-flex justify-content-center">
-                            <button id="startTimer" class="btn btn-primary">Start</button>
-                            <button id="stopTimer" class="btn btn-danger">Stop</button>
+                            <button id="startTimer" class="btn btn-start">Start</button>
+                            <button id="stopTimer" class="btn btn-stop">Stop</button>
                         </div>
                     </div>
                 </div>
