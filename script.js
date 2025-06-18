@@ -39,22 +39,31 @@ function add() {
 }
 
 function next1() {
-    ajouter1.style.display = 'none'
-    ajouter2.style.display = 'block'
-    c_division.style.display = 'none'
-
     nomComp = document.getElementById("nomDeCompetence")
     typeComp = document.getElementById("typeDeCompetence")
     descComp = document.getElementById("descDeCompetence")
+    if (nomComp.value == '') {
+        alert("Le nom est obligatoire!")
+        return
+    }
+
+    ajouter1.style.display = 'none'
+    ajouter2.style.display = 'block'
+    c_division.style.display = 'none'
 }
 let nbrBlock = 0
 function next2() {
+    t_appr = document.getElementById("t-apprentissage")
+    t_bloc = document.getElementById("t-bloc")
+    if (t_appr.value <= 0 || t_appr.value == '' || t_bloc.value <= 0 || t_bloc == "") {
+        alert("Les temps doit etre > 0")
+        return
+    }
     ajouter1.style.display = 'none'
     ajouter2.style.display = 'none'
     c_division.style.display = 'block'
 
-    t_appr = document.getElementById("t-apprentissage")
-    t_bloc = document.getElementById("t-bloc")
+
 
     nbrBlock = Math.ceil(Number(t_appr.value) / Number(t_bloc.value))
 

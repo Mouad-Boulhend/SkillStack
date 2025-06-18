@@ -31,7 +31,7 @@
             <div class="modifierComp" id="modifierComp">
                 <button onclick="backToCardsMere2()" class="backBtn">back</button>
 
-                <table class="table w-100">
+                <table class="table w-50 m-auto">
                     <tr>
                         <td>
                             <label for="NomDeBloc">Nom de bloc:</label>
@@ -90,7 +90,7 @@
                                 <label for="durDeBloc">Duration de bloc (h):</label>
                             </td>
                             <td>
-                                <input type="text" id="durDeBloc">
+                                <input type="text" id="durDeBloc" min="0">
                             </td>
                         </tr>
 
@@ -141,18 +141,18 @@
 
         <div class="my-2">
             <label for="t-apprentissage">combien de temps faudra-t-il pour apprendre cette compétence</label>
-            <input type="number" placeholder="12h" id="t-apprentissage">
+            <input type="number" placeholder="12h" id="t-apprentissage" min="0">
         </div>
 
         <div class="my-2">
             <label for="t-bloc">combien de temps allez-vous consacrer chaque jour</label>
-            <input type="number" placeholder="12h" id="t-bloc">
+            <input type="number" placeholder="12h" id="t-bloc" min="0">
         </div>
 
         <button onclick="next2()" class="btn btn-primary mx-auto bg-black">Suiver</button>
     </section>
 
-    <section id="c-division">
+    <section id="c-division" class="">
         <button onclick="backToAjouter2()" class="backBtn">back</button>
         <h3 class="text-center mt-5">Blocks d'apprentissage de <span class="comp-name">JS</span> <button
                 onclick="fini()" class="btn btn-primary mx-auto bg-black">Fini</button></h3>
